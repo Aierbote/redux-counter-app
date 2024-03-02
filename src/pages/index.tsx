@@ -16,21 +16,21 @@ export default function Home() {
 	const dispatch = useDispatch();
 
 	const onIncrement = () => {
-		dispatch(sliceCounter.actions.increment());
+		dispatch(sliceCounter.actions.increment(1));
 	};
 
 	const onDecrement = () => {
-		dispatch(sliceCounter.actions.decrement());
+		dispatch(sliceCounter.actions.decrement(2));
 	};
 
 	return (
 		<>
-			<h1>My Counter</h1>
+			<h1>⌘ My Counter</h1>
 			<h5>9/10 Bouncers like this</h5>
 			<div>
 				<input type="text" />
-				<button onClick={onIncrement}>+</button>
-				<button onClick={onDecrement}>-</button>
+				<button onClick={onIncrement}>➕</button>
+				<button onClick={onDecrement}>➖</button>
 				<p>message</p>
 			</div>
 			{/* @ts-ignore */} {/* TODO : figure this out */}
