@@ -1,13 +1,11 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+import { Inter, Roboto_Flex } from "next/font/google";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	sliceCounter,
 	sliceErrorSubtraction,
 	sliceInputValue,
 } from "@/redux/slices";
+import { Box, Typography } from "@mui/material";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,6 +13,27 @@ export type TStore = {
 	counter: number;
 	inputValue: number;
 	errorSubtraction: boolean;
+};
+
+const wrapperStyle = {
+	p: 4,
+	display: "flex",
+	flexDirection: "column",
+	justifyContent: "center",
+	bgcolor: "green",
+	height: "40vh",
+	width: "40vw",
+	borderRadius: ".625rem",
+};
+
+const boxStyle = {
+	display: "flex",
+	flexDirection: "column",
+	justifyContent: "center",
+	px: 5,
+	py: 2,
+	height: { xs: "300px", md: "200px" },
+	width: { xs: "300px", md: "200px" },
 };
 
 export default function Home() {
@@ -56,10 +75,12 @@ export default function Home() {
 	};
 
 	return (
-		<>
-			<h1>⌘ My Counter</h1>
-			<h5>9/10 Bouncers like this</h5>
-			<div>
+		<Box sx={wrapperStyle}>
+			<Typography variant="h1" sx={{ fontSize: "3.2rem" }}>
+				⌘ My Counter
+			</Typography>
+			<Typography variant="h5">9/10 Bouncers like this</Typography>
+			<Box sx={boxStyle}>
 				<input
 					type="number"
 					placeholder="Insert number"
@@ -85,9 +106,11 @@ export default function Home() {
 				>
 					➖
 				</button>
-				<p>message: {!errorSubtraction ? "ok" : "Exceeding the limit"}</p>
-			</div>
-			<h3>Total: {counter}</h3>
-		</>
+				<Typography variant="body1">
+					message: {!errorSubtraction ? "ok" : "Exceeding the limit"}
+				</Typography>
+			</Box>
+			<Typography variant="h4">Total: {counter}</Typography>
+		</Box>
 	);
 }
