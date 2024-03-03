@@ -13,11 +13,9 @@ type TStore = {
 };
 
 export default function Home() {
-	const counter = useSelector<TStore>((store) => store.counter);
+	const counter = useSelector((store: TStore) => store.counter);
+	const inputValue = useSelector((store: TStore) => store.inputValue);
 	const dispatch = useDispatch();
-
-	const inputValue = useSelector<TStore>((store) => store.inputValue);
-	// const [inputValue, setInputValue] = useState(0);
 
 	const onValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		console.log(
@@ -51,7 +49,7 @@ export default function Home() {
 				<input
 					type="number"
 					placeholder="Insert number"
-					value={"" + inputValue}
+					value={inputValue}
 					onChange={onValueChange}
 				/>
 				<button
@@ -72,7 +70,6 @@ export default function Home() {
 				</button>
 				<p>message</p>
 			</div>
-			{/* @ts-ignore */} {/* TODO : figure this out */}
 			<h3>Total: {counter}</h3>
 		</>
 	);
