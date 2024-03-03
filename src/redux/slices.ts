@@ -16,3 +16,13 @@ export const sliceCounter = createSlice({
 		},
 	},
 });
+
+export const sliceInputValue = createSlice({
+	name: "inputValue",
+	initialState: 0,
+	reducers: {
+		setInputValue: (state, action) => {
+			return action.payload;
+		},
+	},
+});
