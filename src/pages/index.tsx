@@ -6,6 +6,7 @@ import {
 	sliceInputValue,
 } from "@/redux/slices";
 import { Box, Typography } from "@mui/material";
+import { Add as AddIcon, Remove as RemoveIcon } from "@mui/icons-material";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,8 +33,8 @@ const boxStyle = {
 	justifyContent: "center",
 	px: 5,
 	py: 2,
-	height: { xs: "300px", md: "200px" },
-	width: { xs: "300px", md: "200px" },
+	height: "90%",
+	width: "90%",
 };
 
 export default function Home() {
@@ -95,7 +96,7 @@ export default function Home() {
 					}}
 					disabled={!inputValue}
 				>
-					➕
+					<AddIcon />
 				</button>
 				<button
 					onClick={(event) => {
@@ -104,7 +105,7 @@ export default function Home() {
 					}}
 					disabled={!inputValue}
 				>
-					➖
+					<RemoveIcon />
 				</button>
 				<Typography variant="body1">
 					message: {!errorSubtraction ? "ok" : "Exceeding the limit"}
