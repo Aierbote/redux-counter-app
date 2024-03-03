@@ -9,7 +9,7 @@ export const sliceCounter = createSlice({
 		},
 		decrement: (state, action) => {
 			if (state - action.payload < 0) {
-				return 0;
+				return state;
 			} else {
 				return state - action.payload;
 			}
@@ -22,6 +22,16 @@ export const sliceInputValue = createSlice({
 	initialState: 0,
 	reducers: {
 		setInputValue: (state, action) => {
+			return action.payload;
+		},
+	},
+});
+
+export const sliceErrorSubtraction = createSlice({
+	name: "errorSubtraction",
+	initialState: false,
+	reducers: {
+		setErrorSubtraction: (state, action) => {
 			return action.payload;
 		},
 	},
